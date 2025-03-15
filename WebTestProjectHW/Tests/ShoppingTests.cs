@@ -7,16 +7,12 @@ namespace WebTestProject.Tests
 {
     public class ShoppingTests : TestBase
     {
-        private LoginPage loginPage;
-        private DashboardPage dashboardPage;
         private CartPage cartPage;
         private CheckoutPage checkoutPage;
 
         [SetUp]
         public void TestSetup()
         {
-            loginPage = new LoginPage(driver);
-            dashboardPage = new DashboardPage(driver);
             cartPage = new CartPage(driver);
             checkoutPage = new CheckoutPage(driver);
 

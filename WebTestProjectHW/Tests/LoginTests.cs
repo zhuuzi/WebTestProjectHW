@@ -8,16 +8,6 @@ namespace WebTestProject.Tests
 {
     public class LoginTests : TestBase
     {
-        private LoginPage loginPage;
-        private DashboardPage dashboardPage;
-
-        [SetUp]
-        public void TestSetup()
-        {
-            loginPage = new LoginPage(driver);
-            dashboardPage = new DashboardPage(driver);
-        }
-
         [Test]
         [TestCase(TestConstants.ValidUsername, TestConstants.ValidPassword, TestName = "ValidLogin")]
         public void TestLogin(string username, string password)
@@ -36,5 +26,12 @@ namespace WebTestProject.Tests
             Assert.That(loginPage.IsErrorDisplayed(), Is.True, "Login should have failed, but it didn't.");
         }
 
+        [Test]
+        public void TestLogout()
+        {
+            loginPage.Login(TestConstants.ValidUsername, TestConstants.ValidPassword);
+            dashboardPage.Logout();
+            Assert.That(loginPage.IsLoginPageVisible(), Is.True, "Logout failed.");
+        }
     }
 }

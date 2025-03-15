@@ -13,7 +13,7 @@ namespace WebTestProject.Drivers
         {
             if (driver == null)
             {
-                driver = new ChromeDriver();
+                driver = new ChromeDriver(Environment.CurrentDirectory);
                 driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(Timeouts.ImplicitWait);
                 driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(Timeouts.PageLoadTimeout);
                 driver.Manage().Window.Maximize();
