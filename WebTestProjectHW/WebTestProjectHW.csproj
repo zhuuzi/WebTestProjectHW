@@ -137,6 +137,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Drivers\WebDriverManager.cs" />
     <Compile Include="Pages\CartPage.cs" />
     <Compile Include="Pages\CheckoutPage.cs" />
     <Compile Include="Pages\Components\SideBar.cs" />
@@ -144,7 +145,6 @@
     <Compile Include="Pages\LoginPage.cs" />
     <Compile Include="Tests\Base\TestBase.cs" />
     <Compile Include="Tests\DashboardTests.cs" />
-    <Compile Include="Tests\Drivers\WebDriverManager.cs" />
     <Compile Include="Tests\LoginTests.cs" />
     <Compile Include="Tests\ShoppingTests.cs" />
     <Compile Include="UnitTest1.cs" />

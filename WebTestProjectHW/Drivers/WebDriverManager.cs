@@ -1,9 +1,9 @@
-using OpenQA.Selenium;
+﻿using System;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium;
 using WebTestProject.Utils;
-using System;
 
-namespace WebTestProject.Tests.Drivers
+namespace WebTestProject.Drivers
 {
     public static class WebDriverManager
     {
