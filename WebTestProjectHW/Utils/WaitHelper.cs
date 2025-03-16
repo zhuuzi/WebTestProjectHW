@@ -1,4 +1,5 @@
 using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 using System;
 
@@ -12,8 +13,24 @@ namespace WebTestProject.Utils
             return wait.Until(drv =>
             {
                 var element = drv.FindElement(locator);
-                return element.Displayed ? element : null;
+                ScrollToElement(drv, element);
+                return (element.Displayed && element.Enabled) ? element : null;
             });
         }
+
+        public static void ScrollToElement(IWebDriver driver, IWebElement element)
+        {
+            IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
+
+            bool isInViewport = (bool)js.ExecuteScript(
+                "var rect = arguments[0].getBoundingClientRect();" +
+                "return (rect.top >= 0 && rect.bottom <= window.innerHeight);", element);
+
+            if (!isInViewport)
+            {
+                js.ExecuteScript("arguments[0].scrollIntoView({ behavior: 'smooth', block: 'center' });", element);
+            }
+        }
+
     }
 }
